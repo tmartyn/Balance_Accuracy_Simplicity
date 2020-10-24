@@ -1,8 +1,9 @@
 # Identifying `useful' fitness models: balancing the benefits of added complexity with realistic data requirements in models of individual plant fitness
 ## Code and data for project
 #### Trace Martyn*, Daniel Stouffer, Oscar Godoy, Ignasi Bartomeus, Abigail Pastore, Margaret Mayfield
-#### *Corresponding author; E-mail: t.martyn@uq.net.au
+#### *Corresponding author; E-mail: martyn.ecology@gmail.com
 ##### Initial commit: April 22, 2019
+##### Most recent commit: October 24, 2020
 
 ## Introduction
 
