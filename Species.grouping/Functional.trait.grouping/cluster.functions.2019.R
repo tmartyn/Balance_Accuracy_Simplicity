@@ -2,7 +2,7 @@
 find.clusters<-function(traits,remove,type) {
   
   ## Spain trait data
-  data.Spain<-traits[which(traits$Data=="Godoy"),]
+  data.Spain<-traits[which(traits$Data=="Spain"),]
   
   ## remove data in which there are NA's 
   data.Spain.2 <- data.Spain[,colSums(is.na(data.Spain))<nrow(data.Spain)]
@@ -11,7 +11,7 @@ find.clusters<-function(traits,remove,type) {
   data.Spain.3<-data.Spain.3[-which(names(data.Spain.3)=="X")]
   
   ## Australia trait data
-  data.Australia<-traits[which(traits$Data=="Mayfield"),]
+  data.Australia<-traits[which(traits$Data=="Australia"),]
   
   ## remove data in which there are NA's 
   data.Australia.2 <- data.Australia[,colSums(is.na(data.Australia))<nrow(data.Australia)]

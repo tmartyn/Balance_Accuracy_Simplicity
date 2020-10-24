@@ -17,12 +17,9 @@ datas<-c("Australia","Spain")
 # read and clean raw data
 source("raw.data/clean.raw.data.2019.R")
 
-# run focal ID analysis
-source("Focal.ID/focal.ID.model.run.2019.kfolds.R")
-
 # run rare neighbor species analysis
-source("Species.grouping/Rare.grouping/rare.species.GROUPED.2019.kfold.R")
-source("Species.grouping/Rare.grouping/rare.species.REMOVED.2019.kfold.R")
+source("Species.grouping/Rare.grouping/rare.species.GROUPED.2019.kfold.by.focal.R")
+source("Species.grouping/Rare.grouping/rare.species.REMOVED.2019.kfold.by.focal.R")
 
 # create clusters
 source("Species.grouping/Functional.trait.grouping/create.clusters.2019.R")
@@ -31,13 +28,5 @@ source("Species.grouping/Functional.trait.grouping/create.clusters.2019.R")
 source("Neigh.ID/making.data.list.groupings.2019.R")
 
 # run neighbor ID analysis
-source("Neigh.ID/run.neigh.ID.whole.model.2019.direct.kfolds.R")
-source("Neigh.ID/run.neigh.ID.whole.model.2019.HOI.kfolds.R")
-
-#make figures
-source("figures/figures_14.01.2020.R")
-
-# make appendix figures
-source("figures/australia.appendix.figures.model.coef.R")
-source("figures/spain.appendix.figures.model.coef.R")
-
+source("Neigh.ID/run.neigh.ID.whole.model.2019.direct.kfolds.by.focal.R")
+source("Neigh.ID/run.neigh.ID.whole.model.2019.HOI.kfolds.by.focal.R")
