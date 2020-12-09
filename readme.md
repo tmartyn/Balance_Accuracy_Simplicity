@@ -1,9 +1,9 @@
 # Identifying `useful' fitness models: balancing the benefits of added complexity with realistic data requirements in models of individual plant fitness
-## Code and data for project
+## Code and data used in publication.
 #### Trace Martyn*, Daniel Stouffer, Oscar Godoy, Ignasi Bartomeus, Abigail Pastore, Margaret Mayfield
 #### *Corresponding author; E-mail: martyn.ecology@gmail.com
 ##### Initial commit: April 22, 2019
-##### Most recent commit: October 24, 2020
+##### Most recent commit: Dec 9, 2020
 
 ## Introduction
 
@@ -20,4 +20,4 @@ Present are five folders:
 
 ## To run code
 
-To run the analyses, please open the "FINAL.Rproj" file which will open R.Studio and set the working directory from the folder that contains the project file. Then open the "run.analyses.R" file. From this file all data cleaning and analysis code is sourced and run - running this file should run all analyses.
+To run the analyses, please open the "FINAL.Rproj" file which will open R.Studio and set the working directory from the folder that contains the project file. Then open the "run.analyses.R" file. From this file all data cleaning and analysis code is sourced and run - running this file should run all analyses. If wanting to run the analyses for seperate focal species, use the code with the 'by.focal' naming.
