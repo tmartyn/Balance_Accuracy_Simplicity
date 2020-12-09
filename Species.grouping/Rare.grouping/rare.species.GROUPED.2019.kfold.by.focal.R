@@ -56,7 +56,7 @@ b<-1
 beta<-T
 
 # read in model function for running model by species
-source("Species.grouping/Rare.grouping/fecundity.model.NEW.AB.focal.mvabund.by.species.R")
+source("Species.grouping/Rare.grouping/fecundity.model.NEW.AB.focal.mvabund.by.focal.R")
 
 for (d in datas) { # for each data type
   print(d)

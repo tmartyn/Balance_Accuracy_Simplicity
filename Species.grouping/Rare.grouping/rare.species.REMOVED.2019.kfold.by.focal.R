@@ -40,7 +40,7 @@ b<-1
 beta<-T
 
 # source model could
-source("Species.grouping/Rare.grouping/fecundity.model.NEW.AB.focal.mvabund.by.species.R")
+source("Species.grouping/Rare.grouping/fecundity.model.NEW.AB.focal.mvabund.by.focal.R")
 source("predict.manyglm.R")
 
 

@@ -1,5 +1,5 @@
 
-source("Neigh.ID/model/fecundity.model.NEW.AB.focal.mvabund.by.species.R")
+source("Neigh.ID/model/fecundity.model.NEW.AB.focal.mvabund.by.focal.R")
 source("predict.manyglm.R")
 ## beta flag
 beta<-F

@@ -6,7 +6,7 @@ library(mvabund) # for model fitting
 library(cluster) # for gower similarity and pam
 library(plyr) # for rbind.fill
 library(dplyr) # for data cleaning & piping
-library(Cairo) # to save plot image
+library(Cairo) # to save plot image as png
 library(tidyr) # for gather()
 library(fmsb) # for radar plot
 

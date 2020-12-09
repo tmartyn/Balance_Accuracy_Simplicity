@@ -1,3 +1,10 @@
+##################################################
+# code modified from Mayfield, M.M. and D.B. Stouffer (2017) Higher-
+#    order interactions capture unexplained complexity in diverse communties.
+#    Nature Ecology & Evolution 1,Article number: 0062. 
+#    DOI: https://doi.org/10.1038/s41559-016-0062
+##################################################
+
 ####
 # function to fit the negative-binomial fecundity model
 ####
