@@ -28,12 +28,7 @@ for (d in datas) {
     
     for (t in type) {
       print(t)
-      # make empty model lists
-      #alpha.models.AB<-list()
-      #alpha.beta.models.AB<-list()
-      
-      #print(paste0("Testing Focal: ",t))
-      
+
       # source model (this is the best fitting of the HOI models so far...)
       source(paste0("Focal.ID/model/fecundity.model.NEW.",t,".focal.mvabund.R"))
       
@@ -129,45 +124,7 @@ for (d in datas) {
         }
       }
       
-      #print("Saving data")
-      # 
-      # # save model lists as output
-      # if (t %in% c("A","NA","NA.part")) {
-      #   saveRDS(alpha.models.AB,paste0("Focal.ID/output/",d,".mvabund.",t,".alpha.model.fold.",k,".20.12.2019.rds"))
-      # }
-      # 
-      # if (t %in% c("A","AB","B","NA","NA.part")) {
-      #   saveRDS(alpha.beta.models.AB,paste0("Focal.ID/output/",d,".mvabund.",t,".alpha.beta.model.fold.",k,".20.12.2019.rds"))
-      # }
-      # 
-      # # fill in empty dataframe created above
-      # if (t %in% c("A","NA","NA.part")) {
-      #   sum$Model[b]<-paste0(t)
-      #   sum$coef[b]<-length(alpha.models.AB$coefficients)
-      #   sum$AIC[b]<-AIC(alpha.models.AB)
-      #   sum$fold[b]<-k
-      #   sum$BIC[b]<-BIC(alpha.models.AB)
-      #   sum$train.RMSE[b]<-sqrt(mean(alpha.models.AB$residuals^2))
-      #   sum$predict.RMSE[b]<-predict.RMSE.alpha
-      #   sum$likeli[b]<-logLik(alpha.models.AB)
-      #   sum$beta[b]<-"FALSE"
-      #   b<-b+1}
-      # 
-      # if (t %in% c("A","AB","B","NA","NA.part")) {
-      #   sum$Model[b]<-paste0(t)
-      #   sum$coef[b]<-length(alpha.beta.models.AB$coefficients)
-      #   sum$AIC[b]<-AIC(alpha.beta.models.AB)
-      #   sum$fold[b]<-k
-      #   sum$BIC[b]<-BIC(alpha.beta.models.AB)
-      #   sum$train.RMSE[b]<-sqrt(mean(alpha.beta.models.AB$residuals^2))
-      #   sum$predict.RMSE[b]<-predict.RMSE.beta
-      #   sum$likeli[b]<-logLik(alpha.beta.models.AB)
-      #   sum$beta[b]<-"TRUE"
-      #   b<-b+1}
-      # 
-      # 
-      # rm(alpha.beta.models.AB)
-      # rm(alpha.models.AB)
+
     } # end for each type
     
     

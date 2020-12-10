@@ -1,21 +1,30 @@
-rm(list=ls())
+rm(list=ls()) # clear workspace
+
 library(ggplot2)
 library(Cairo)
 library(tidyverse)
+
+#read in rare grouping
 rares.G<-read.csv("Species.grouping/Rare.grouping/output/rare.grouped.summary.kfolds.2019.csv")
 rares.R<-read.csv("Species.grouping/Rare.grouping/output/rare.removed.summary.kfolds.2019.csv")
+
+#rename columns and to prep combine data
 names(rares.G)<-c("Data","beta","coef","AIC","train.RMSE","predict.RMSE","BIC","fold","likeli")
 names(rares.R)<-c("Data","beta","coef","AIC","train.RMSE","predict.RMSE","BIC","fold","likeli")
 rares.G$group<-"rares.grouped"
 rares.R$group<-"rares.removed"
 rares.G<-rares.G[,sort(names(rares.G))]
 rares.R<-rares.R[,sort(names(rares.R))]
+
+#read in spain data
 spain.neigh<-read.csv("Neigh.ID/output/Spain.neighbor.ID.summary.2019.HOI.kfolds.csv")
 spain.neigh2<-spain.neigh[,-1]
 spain.neigh2<-spain.neigh2[,-which(names(spain.neigh2)=="focal")]
 names(spain.neigh2)<-c("group","beta","fold","coef","AIC","train.RMSE","predict.RMSE","BIC","likeli")
 spain.neigh2$Data<-"Spain"
 spain.neigh3<-spain.neigh2[,sort((names(spain.neigh2)))]
+
+#read in australia data
 aus.neigh<-read.csv("Neigh.ID/output/Australia.neighbor.ID.summary.2019.HOI.kfolds.csv")
 aus.neigh2<-aus.neigh[,-1]
 aus.neigh2<-aus.neigh2[,-which(names(aus.neigh2)=="focal")]
@@ -24,6 +33,7 @@ aus.neigh2$Data<-"Australia"
 aus.neigh3<-aus.neigh2[,sort((names(aus.neigh2)))]
 
 ###############################################
+#Group data
 grouped.1<-rbind(aus.neigh3,spain.neigh3)
 grouped.2<-rbind(rares.G,rares.R)
 grouped<-rbind(grouped.1,grouped.2)
@@ -31,6 +41,7 @@ grouped<-rbind(grouped.1,grouped.2)
 groups<-unique(grouped$group)
 group.shapes<-c("SP","AB","OS","LF","FG","FAM","CL","RG","RR")
 
+#wide to long
 grouped.HOI<-grouped[which(grouped$beta==T),]
 long.grouped.HOI<- grouped.HOI %>% 
   gather("AIC","BIC","likeli","predict.RMSE","train.RMSE",key="Metric.name",value="Metric")
@@ -41,28 +52,37 @@ long.grouped.direct<- grouped.direct %>%
   gather("AIC","BIC","likeli","predict.RMSE","train.RMSE",key="Metric.name",value="Metric")
 
 
-
+#merged HOI and direct data
 m.grouped<-merge(long.grouped.HOI,long.grouped.direct,by=c("Data","fold","group","Metric.name"),suffixes=c(".HOI",".direct"))
 
+# aggregate data to estimate means
 m.grouped.mean<-with(m.grouped,aggregate(cbind(Metric.HOI,Metric.direct),by=list(Data,group,Metric.name),mean))
 names(m.grouped.mean)[1:3]<-c("Data","group","Metric.name")
+
+# aggregate data to estiamte SD
 std <- function(x) sd(x)/sqrt(length(x))
 m.grouped.sd<-with(m.grouped,aggregate(cbind(Metric.HOI,Metric.direct),by=list(Data,group,Metric.name),std))
 names(m.grouped.sd)[1:3]<-c("Data","group","Metric.name")
+
 m.grouped.coef<-with(m.grouped,aggregate(cbind(coef.HOI,coef.direct),by=list(Data,group,Metric.name),mean))
 names(m.grouped.coef)[1:3]<-c("Data","group","Metric.name")
 
+
+# merge data and clean
 m.grouped.2<-merge(m.grouped.mean,m.grouped.sd,by=c("Data","group","Metric.name"),suffixes=c(".mean",".sd"))
 m.grouped.2<-merge(m.grouped.2,m.grouped.coef,by=c("Data","group","Metric.name"))
-#m.grouped.2<-m.grouped.2[-which(m.grouped.2$group=="functional"),]
 m.grouped.2<-m.grouped.2[-which(m.grouped.2$Metric.name=="likeli"),]
+
 gp.rm<-c("full","rares.grouped","rares.removed")
 gp.rm.A<-c("full","rares.grouped","rares.removed","families")
+
+
 m.grouped.3<-m.grouped.2[-which(m.grouped.2$Metric.name=="predict.RMSE"& m.grouped.2$group %in% gp.rm&m.grouped.2$Data=="Spain"),]
 m.grouped.3<-m.grouped.3[-which(m.grouped.3$Metric.name=="predict.RMSE"& m.grouped.3$group %in% gp.rm.A&m.grouped.3$Data=="Australia"),]
 
 unique(m.grouped.3$group)
 
+# re level and name factors
 m.grouped.3$group<-factor(m.grouped.3$group,
                           levels=c("full","rares.grouped","rares.removed",
                                    "number.indivs","families","cluster","functional",
@@ -76,9 +96,12 @@ m.grouped.3$Metric.name<-factor(m.grouped.3$Metric.name,
                                 labels=c("AIC","BIC","RMSE training","RMSE testing"))
 
 
+#identify colors
 colors<-c("black","grey40","grey65",
           "red","darkgoldenrod1","chocolate2","darkmagenta",
           "seagreen","royalblue3")
+
+# Make figures
 #################### AUstralia ###################
 CairoPDF("figures/Australia_neigh_ID.pdf",height=10,width=10)
 dummy <- data.frame(Metric.direct.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
@@ -208,6 +231,6 @@ ggplot(data=m.grouped.2.S[which(m.grouped.2.S$Data=="Spain" & m.grouped.2.S$Metr
                                       panel.grid.minor = element_blank(),
                                       axis.line = element_line(colour = "black", size = 0.5, linetype = "solid"),
                                       panel.margin = unit(2, "lines"))+
-  guides(col=guide_legend(nrow=3))#+guides(col=F)#+theme(legend.direction="horizontal",legend.position = "top")
+  guides(col=guide_legend(nrow=3))
 
 dev.off()

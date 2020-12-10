@@ -28,18 +28,13 @@ df.mean$alpha.beta.std<-df.std$alpha.beta.coef
 df.mean$alpha.std<-df.std$seeds
 
 names(df.mean)<-c("interaction","alpha.beta.mean","alpha.mean","alpha.beta.std","alpha.std")
-#dummy <- data.frame(Metric.direct.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
-#                    Metric.HOI.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
-#                    Metric.name = c("BIC", "BIC", "AIC", "AIC","RMSE training","RMSE training","RMSE testing","RMSE testing"),
-#                    group=rep("Life Form",8))
+
 library(ggplot2)
 library(Cairo)
 CairoPDF("figures/Australia_Orgin_Status.pdf",height=10,width=10)
 colors<-rep(c("red","blue"),6)
 ggplot(data=df.mean,aes(x=alpha.mean,y=alpha.beta.mean,col=interaction))+
   geom_point(shape=21,size=5,stroke=1.5)+geom_abline(slope=1,size=1.5)+
-  #facet_wrap(vars(Metric.name), scales="free")+
- # geom_blank(data=dummy)+
   ylim(-0.3,0.3)+xlim(-0.3,0.3)+
   geom_errorbarh(aes(xmin=alpha.mean-2*alpha.std,xmax=alpha.mean+2*alpha.std))+
   geom_errorbar(aes(ymin=alpha.beta.mean-2*alpha.beta.std,ymax=alpha.beta.mean+2*alpha.beta.std)) +
@@ -51,10 +46,6 @@ ggplot(data=df.mean,aes(x=alpha.mean,y=alpha.beta.mean,col=interaction))+
   guides(col=F)+
   theme_minimal(base_size = 20)+theme(panel.grid.major = element_blank(),   # Major grid lines
                                       panel.grid.minor = element_blank())
-#+theme(legend.direction="horizontal",
-                              #        legend.position = "bottom",
-                               #       legend.text = element_text(size=14),
-                               #       legend.title = element_blank())+guides(col=guide_legend(nrow=3))#+guides(col=F)#+theme(legend.direction="horizontal",legend.position = "top")
 dev.off()
 ################# Aussie grass forb #####################
 alpha.model.list<-list()
@@ -75,8 +66,6 @@ for (i in 1:5){
   } else {df.all<-temp.df}
 }
 
-
-
 std <- function(x) sd(x)/sqrt(length(x))
 
 df.mean<-with(df.all,aggregate(cbind(alpha.beta.coef,seeds),by=list(interaction),mean))
@@ -86,11 +75,8 @@ df.mean$alpha.beta.std<-df.std$alpha.beta.coef
 df.mean$alpha.std<-df.std$seeds
 
 names(df.mean)<-c("interaction","alpha.beta.mean","alpha.mean","alpha.beta.std","alpha.std")
-#dummy <- data.frame(Metric.direct.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
-#                    Metric.HOI.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
-#                    Metric.name = c("BIC", "BIC", "AIC", "AIC","RMSE training","RMSE training","RMSE testing","RMSE testing"),
-#                    group=rep("Life Form",8))
-library(ggplot2)
+
+
 CairoPDF("figures/Australia_Life_Form.pdf",height=10,width=10)
 colors<-rep(c("red","blue"),6)
 ggplot(data=df.mean,aes(x=alpha.mean,y=alpha.beta.mean,col=interaction))+
@@ -108,11 +94,8 @@ ggplot(data=df.mean,aes(x=alpha.mean,y=alpha.beta.mean,col=interaction))+
   guides(col=F)+
   theme_minimal(base_size = 20)+theme(panel.grid.major = element_blank(),   # Major grid lines
                                       panel.grid.minor = element_blank())
-#+theme(legend.direction="horizontal",
-                              #        legend.position = "bottom",
-                              #        legend.text = element_text(size=14),
-                              #        legend.title = element_blank())+guides(col=guide_legend(nrow=3))#+guides(col=F)#+theme(legend.direction="horizontal",legend.position = "top")
 dev.off()
+
 
 ################# Aussie
 alpha.model.list<-list()
@@ -143,17 +126,11 @@ df.mean$alpha.beta.std<-df.std$alpha.beta.coef
 df.mean$alpha.std<-df.std$seeds
 
 names(df.mean)<-c("interaction","alpha.beta.mean","alpha.mean","alpha.beta.std","alpha.std")
-#dummy <- data.frame(Metric.direct.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
-#                    Metric.HOI.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
-#                    Metric.name = c("BIC", "BIC", "AIC", "AIC","RMSE training","RMSE training","RMSE testing","RMSE testing"),
-#                    group=rep("Life Form",8))
-library(ggplot2)
+
 CairoPDF("figures/Australia_Abundance.pdf",height=10,width=10)
 colors<-rep(c("red"),6)
 ggplot(data=df.mean,aes(x=alpha.mean,y=alpha.beta.mean,col=interaction))+
   geom_point(shape=21,size=5,stroke=1.5)+geom_abline(slope=1,size=1.5)+
-  #facet_wrap(vars(Metric.name), scales="free")+
-  # geom_blank(data=dummy)+
   ylim(-0.3,0.3)+xlim(-0.3,0.3)+
   geom_errorbarh(aes(xmin=alpha.mean-2*alpha.std,xmax=alpha.mean+2*alpha.std))+
   geom_errorbar(aes(ymin=alpha.beta.mean-2*alpha.beta.std,ymax=alpha.beta.mean+2*alpha.beta.std)) +
@@ -165,11 +142,9 @@ ggplot(data=df.mean,aes(x=alpha.mean,y=alpha.beta.mean,col=interaction))+
   guides(col=F)+
   theme_minimal(base_size = 20)+theme(panel.grid.major = element_blank(),   # Major grid lines
                                       panel.grid.minor = element_blank())
-#+theme(legend.direction="horizontal",
-                              #        legend.position = "bottom",
-                              #        legend.text = element_text(size=14),
-                              #        legend.title = element_blank())+guides(col=guide_legend(nrow=3))#+guides(col=F)#+theme(legend.direction="horizontal",legend.position = "top")
 dev.off()
+
+
 ################# Aussie fucntional type
 alpha.model.list<-list()
 alpha.beta.model.list<-list()
@@ -199,17 +174,11 @@ df.mean$alpha.beta.std<-df.std$alpha.beta.coef
 df.mean$alpha.std<-df.std$seeds
 
 names(df.mean)<-c("interaction","alpha.beta.mean","alpha.mean","alpha.beta.std","alpha.std")
-#dummy <- data.frame(Metric.direct.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
-#                    Metric.HOI.mean = c(7900, 11100, 7800, 8300,0.94,1.2,0.7,2.5),
-#                    Metric.name = c("BIC", "BIC", "AIC", "AIC","RMSE training","RMSE training","RMSE testing","RMSE testing"),
-#                    group=rep("Life Form",8))
-library(ggplot2)
+
 CairoPDF("figures/Australia_Trait_complex.pdf",height=10,width=10)
 colors<-rep(c("red","green","orange","hotpink","blue","black","grey40"),6)
 ggplot(data=df.mean,aes(x=alpha.mean,y=alpha.beta.mean,col=interaction))+
   geom_point(shape=21,size=5,stroke=1.5)+geom_abline(slope=1,size=1.5)+
-  #facet_wrap(vars(Metric.name), scales="free")+
-  # geom_blank(data=dummy)+
   ylim(-3,3)+xlim(-3,3)+
   geom_errorbarh(aes(xmin=alpha.mean-2*alpha.std,xmax=alpha.mean+2*alpha.std))+
   geom_errorbar(aes(ymin=alpha.beta.mean-2*alpha.beta.std,ymax=alpha.beta.mean+2*alpha.beta.std)) +
@@ -221,10 +190,7 @@ ggplot(data=df.mean,aes(x=alpha.mean,y=alpha.beta.mean,col=interaction))+
   guides(col=F)+
   theme_minimal(base_size = 20)+theme(panel.grid.major = element_blank(),   # Major grid lines
                                       panel.grid.minor = element_blank())
-#+theme(legend.direction="horizontal",
-                              #        legend.position = "bottom",
-                              #        legend.text = element_text(size=14),
-                              #        legend.title = element_blank())+guides(col=guide_legend(nrow=3))#+guides(col=F)#+theme(legend.direction="horizontal",legend.position = "top")
+
 dev.off()
 
 rm(df.all)

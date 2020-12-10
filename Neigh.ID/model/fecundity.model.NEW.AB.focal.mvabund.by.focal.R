@@ -10,10 +10,10 @@
 ####
 
 fecundity.model <- function(
-	data,
-	fit.alphas=FALSE,
-	fit.betas=FALSE,
-	...
+  data,
+  fit.alphas=FALSE,
+  fit.betas=FALSE,
+  ...
 ){
   library(mvabund)
   
@@ -54,8 +54,8 @@ fecundity.model <- function(
     
     # betas between heterospecific neighbors
     if (length(all.alphas)>1) {
-    possible.interbetas <- combn(all.alphas,2)
-    possible.interbetas <- apply(possible.interbetas,2,paste,collapse=":")
+      possible.interbetas <- combn(all.alphas,2)
+      possible.interbetas <- apply(possible.interbetas,2,paste,collapse=":")
     } else {possible.interbetas<-NULL}
     
     # combine all betas together into a single variable
@@ -66,9 +66,6 @@ fecundity.model <- function(
     #model.formula <- paste0(model.formula, " + ", paste0(all.betas, collapse=" + "))
   }
   
-  # # do some nifty stuff to make sure that:
-  # # 1. we avoid having a singular model
-  # # 2. we allow linearly-dependent coefficients to get their estimates (eventually; i.e., with enough randomizations)
   full.model.formula <- model.formula
   m <- manyglm(
     as.formula(model.formula),

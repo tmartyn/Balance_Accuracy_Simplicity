@@ -59,9 +59,6 @@ fecundity.model <- function(
     #model.formula <- paste0(model.formula, " + ", paste0(all.betas, collapse=" + "))
   }
   
-  # # do some nifty stuff to make sure that:
-  # # 1. we avoid having a singular model
-  # # 2. we allow linearly-dependent coefficients to get their estimates (eventually; i.e., with enough randomizations)
   full.model.formula <- model.formula
   m <- manyglm(
     as.formula(model.formula),
