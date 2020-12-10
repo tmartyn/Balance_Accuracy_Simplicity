@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1607631090150.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "707426089",
+    "id" : "96A9CA8B",
+    "lastKnownWriteTime" : 1607357104,
+    "last_content_update" : 1607357104,
+    "path" : "C:/Users/litak/Desktop/Balance_Accuracy_Simplicity/run.analyses.R",
+    "project_path" : "run.analyses.R",
+    "properties" : {
+        "cursorPosition" : "22,0",
+        "scrollLine" : "3"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

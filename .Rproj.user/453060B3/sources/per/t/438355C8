@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1607631069256.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3160460831",
+    "id" : "438355C8",
+    "lastKnownWriteTime" : 1603553677,
+    "last_content_update" : 1603553677,
+    "path" : "C:/Users/litak/Desktop/Balance_Accuracy_Simplicity/run.analyses.by.focal.R",
+    "project_path" : "run.analyses.by.focal.R",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
