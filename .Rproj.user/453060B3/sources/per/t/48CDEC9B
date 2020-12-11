@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1607708699220.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3162418220",
+    "id" : "48CDEC9B",
+    "lastKnownWriteTime" : 1607708860,
+    "last_content_update" : 1607708860350,
+    "path" : "C:/Users/litak/Desktop/Balance_Accuracy_Simplicity/raw.data/clean.raw.data.2019.R",
+    "project_path" : "raw.data/clean.raw.data.2019.R",
+    "properties" : {
+        "cursorPosition" : "39,0",
+        "scrollLine" : "18"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
