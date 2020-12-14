@@ -25,3 +25,7 @@ To run the analyses, please open the "FINAL.Rproj" file which will open R.Studio
 ## Data 
 
 Data is accessible at DOI: https://doi.org/10.5061/dryad.zs7h44j7f.
+
+
+
+[![DOI](https://zenodo.org/badge/182592357.svg)](https://zenodo.org/badge/latestdoi/182592357)
