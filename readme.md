@@ -21,3 +21,7 @@ Present are five folders:
 ## To run code
 
 To run the analyses, please open the "FINAL.Rproj" file which will open R.Studio and set the working directory from the folder that contains the project file. Then open the "run.analyses.R" file. From this file all data cleaning and analysis code is sourced and run - running this file should run all analyses. If wanting to run the analyses for seperate focal species, use the code with the 'by.focal' naming.
+
+## Data 
+
+Data is accessible at DOI: https://doi.org/10.5061/dryad.zs7h44j7f.
