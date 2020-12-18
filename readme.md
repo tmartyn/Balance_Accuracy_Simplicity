@@ -26,9 +26,9 @@ To run the analyses, please open the "FINAL.Rproj" file which will open R.Studio
 
 Data is accessible at DOI: https://doi.org/10.5061/dryad.zs7h44j7f.
 
-###Data headers
+### Data headers
 
-####mayfield.Rdata:
+#### mayfield.Rdata:
  - List of dataframe for each of the six focal species
 	- Rows are individual plants and columns are:
 		- "focal" (the name of the focal species)
@@ -37,7 +37,7 @@ Data is accessible at DOI: https://doi.org/10.5061/dryad.zs7h44j7f.
 		- "site" (the site label - either K for Kunjin or B for Bendering)
 		- a list of columns that are headed with the names of neighboring species and include the abundance of that species.
 
-####Caracoles.competition.update.14.05.2018.csv
+#### Caracoles.competition.update.14.05.2018.csv
  - Rows are individual plants and columns include:
   - "order" (the order of rows that the data was input into the spreadsheet)
   - "date" (the date the data was input into the spreadsheet)
@@ -48,7 +48,7 @@ Data is accessible at DOI: https://doi.org/10.5061/dryad.zs7h44j7f.
   - "seed"	(the number of seed for the individual plant)
   - a list of columns that are headed with the names of neighboring species and include the abundance of that species.
 
-####species.traits.Australia.Spain.2019.csv
+#### species.traits.Australia.Spain.2019.csv
 The two datasets, Spain and Australia were analyzed seperately from one another, therefore we decided to keep the data as collected by the respective groups - therefore units may differ between the two but noted below)
  - Rows are different species and columns include:
 	- "Data.name" (name given to the the data based on researcher)
